@@ -1,0 +1,180 @@
+[
+  {
+    "name": "🛑 Adblock",
+    "slug": "adblock",
+    "action": "block",
+    "rule_set_build_in": [
+      "acl:BanAD",
+      "geosite:category-ads"
+    ],
+    "srs": true
+  },
+  {
+    "name": "🍃 AdblockPlus",
+    "slug": "adblockplus",
+    "action": "block",
+    "rule_set_build_in": [
+      "acl:BanProgramAD",
+      "acl:BanADCompany"
+    ]
+  },
+  {
+    "name": "🛑 malware",
+    "slug": "malware",
+    "action": "block",
+    "rule_set_build_in": [
+      "geosite:malware",
+      "geoip:malware",
+      "geoip:phishing",
+      "geosite:phishing",
+      "geosite:cryptominers"
+    ]
+  },
+  {
+    "name": "🍏 Apple-Direct",
+    "slug": "apple-direct",
+    "action": "direct",
+    "srs": true
+  },
+  {
+    "name": "🧠 Apple-VPS",
+    "slug": "apple-vps",
+    "action": "currentSelected",
+    "srs": true
+  },
+  {
+    "name": "🌐 Apps-VPS",
+    "slug": "apps-vps",
+    "action": "currentSelected",
+    "srs": true
+  },
+  {
+    "name": "🍎 Apple",
+    "slug": "apple",
+    "action": "direct",
+    "rule_set_build_in": [
+      "geosite:apple",
+      "geosite:apple@ads",
+      "geosite:apple-dev",
+      "geosite:apple-pki",
+      "geosite:apple-update"
+    ]
+  },
+  {
+    "name": "♊️ Google Gemini",
+    "slug": "google-gemini",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "acl:Gemini"
+    ],
+    "srs": true
+  },
+  {
+    "name": "🌏 Google",
+    "slug": "google",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geosite:google",
+      "geoip:google"
+    ],
+    "srs": true
+  },
+  {
+    "name": "🎧 TikTok",
+    "slug": "tiktok",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geosite:tiktok"
+    ],
+    "srs": true
+  },
+  {
+    "name": "📸 Instagram",
+    "slug": "instagram",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geosite:instagram"
+    ],
+    "srs": true
+  },
+  {
+    "name": "🎥 Netflix",
+    "slug": "netflix",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geoip:netflix",
+      "geosite:netflix"
+    ],
+    "srs": true
+  },
+  {
+    "name": "📲 Discord",
+    "slug": "discord",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geosite:discord",
+      "acl:Discord"
+    ],
+    "srs": true
+  },
+  {
+    "name": "📲 WhatsApp",
+    "slug": "whatsapp",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geosite:whatsapp",
+      "acl:Whatsapp"
+    ],
+    "srs": true
+  },
+  {
+    "name": "📲 Telegram",
+    "slug": "telegram",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geoip:telegram",
+      "geosite:telegram"
+    ],
+    "srs": true
+  },
+  {
+    "name": "💬 Claude",
+    "slug": "claude",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "acl:Claude"
+    ],
+    "srs": true
+  },
+  {
+    "name": "💬 OpenAI",
+    "slug": "openai",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geoip:openai",
+      "geosite:openai"
+    ],
+    "srs": true
+  },
+  {
+    "name": "🌏 GFW",
+    "slug": "gfw",
+    "action": "currentSelected",
+    "rule_set_build_in": [
+      "geoip:blocked@ru",
+      "geoip:blocked-community@ru",
+      "geosite:blocked@ru"
+    ],
+    "srs": true
+  },
+  {
+    "name": "🇷🇺 Russia",
+    "slug": "russia",
+    "action": "direct",
+    "rule_set_build_in": [
+      "geosite:ru",
+      "geoip:ru"
+    ],
+    "srs": true
+  }
+]

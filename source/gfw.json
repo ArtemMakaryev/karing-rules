@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "facebook.com",
+        "fbcdn.net",
+        "linkedin.com",
+        "signal.org",
+        "twimg.com",
+        "twitter.com",
+        "viber.com",
+        "x.com"
+      ]
+    }
+  ]
+}

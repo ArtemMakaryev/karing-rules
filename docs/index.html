@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Правила для Karing</title>
+<style>
+  :root { --bg:#faf9f5; --fg:#1f1e1d; --muted:#5f5d57; --card:#ffffff; --line:#e4e1d8; --accent:#c6613f; --accent-fg:#ffffff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#1a1918; --fg:#f1efe8; --muted:#a8a59b; --card:#262524; --line:#3a3836; --accent:#d9774f; --accent-fg:#1a1918; }
+  }
+  :root[data-theme="dark"] { --bg:#1a1918; --fg:#f1efe8; --muted:#a8a59b; --card:#262524; --line:#3a3836; --accent:#d9774f; --accent-fg:#1a1918; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:640px; margin:0 auto; padding:32px 16px 48px; }
+  h1 { font-size:1.6rem; line-height:1.25; margin:0 0 8px; }
+  h2 { font-size:1.1rem; margin:28px 0 8px; }
+  p, li { color:var(--fg); }
+  .lead { color:var(--muted); margin:0 0 24px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin:16px 0; }
+  .btn { display:block; text-align:center; background:var(--accent); color:var(--accent-fg); text-decoration:none; font-weight:600; padding:14px 18px; border-radius:10px; }
+  .btn:focus-visible, code:focus-visible { outline:3px solid var(--fg); outline-offset:2px; }
+  code { display:block; word-break:break-all; user-select:all; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px; font:13px/1.45 ui-monospace, Menlo, Consolas, monospace; }
+  .warn { border-left:4px solid var(--accent); }
+  ol { padding-left:1.3em; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Готовые правила маршрутизации для Karing</h1>
+  <p class="lead">Российские сайты идут напрямую, заблокированные и зарубежные — через ваш сервер, реклама и вредоносные адреса блокируются. Правила обновляются сами.</p>
+
+  <h2>Установка</h2>
+  <ol>
+    <li>Сначала добавьте подписку на свой сервер в Karing.</li>
+    <li>Затем нажмите кнопку ниже на устройстве, где установлен Karing, и подтвердите импорт.</li>
+  </ol>
+
+  <div class="card">
+    <a class="btn" href="karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip">Установить правила в Karing</a>
+  </div>
+
+  <p>Если кнопка не открывает Karing, скопируйте ссылку и откройте её в браузере на устройстве с Karing:</p>
+  <code tabindex="0">karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip</code>
+
+  <div class="card warn">
+    <strong>Что важно знать</strong>
+    <ul>
+      <li>Импорт заменяет ваши текущие группы маршрутизации (Diversion Rules). Подписка на сервер сохраняется.</li>
+      <li>После импорта Karing включает режим TUN — это обычный VPN-режим Karing.</li>
+      <li>Новая группа или смена действия у группы подтягиваются только повторной установкой по этой ссылке.</li>
+      <li>Наборы правил Karing перекачивает сам примерно раз в сутки; сразу — через Настройки → Очистить кэш.</li>
+    </ul>
+  </div>
+
+  <p><a href="https://github.com/ArtemMakaryev/karing-rules">Исходники и подробности на GitHub</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "adfox.ru",
+        "an.yandex.ru"
+      ]
+    }
+  ]
+}
