@@ -6,7 +6,8 @@
     "rule_set_build_in": [
       "acl:BanAD",
       "geosite:category-ads"
-    ]
+    ],
+    "srs": true
   },
   {
     "name": "🍃 AdblockPlus",

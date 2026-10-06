@@ -14,6 +14,9 @@
           "rule_set_build_in": [
             "acl:BanAD",
             "geosite:category-ads"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/adblock.srs"
           ]
         },
         {
@@ -236,6 +239,12 @@
     }
   ],
   "rule_set_items": [
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/adblock.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/adblock.srs"
+    },
     {
       "type": "remote",
       "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-direct.srs",

@@ -8,6 +8,9 @@
       "rule_set_build_in": [
         "acl:BanAD",
         "geosite:category-ads"
+      ],
+      "rule_set": [
+        "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/adblock.srs"
       ]
     },
     {

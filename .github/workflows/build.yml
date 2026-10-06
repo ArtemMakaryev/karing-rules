@@ -5,7 +5,7 @@ on:
   pull_request:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: build-${{ github.ref }}
@@ -44,11 +44,36 @@ jobs:
           git add -N srs karing
           git diff --exit-code -- srs karing
 
-      # An owner edit of source/ or groups.json in the web UI lands without outputs:
-      # commit them back. The push of GITHUB_TOKEN starts no new run, so no loop;
-      # nothing changed means nothing is committed.
+      - name: Test
+        run: scripts/test.sh
+
+  # Only this job holds a write token: it runs on main pushes alone, after the
+  # build job passed. An owner edit of source/ or groups.json in the web UI lands
+  # without outputs: commit them back. The push of GITHUB_TOKEN starts no new run,
+  # so no loop; nothing changed means nothing is committed.
+  publish:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install the pinned sing-box
+        run: |
+          set -eu
+          tarball="$RUNNER_TEMP/sing-box.tar.gz"
+          curl -fsSL -o "$tarball" "https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz"
+          echo "${SING_BOX_SHA256}  ${tarball}" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/sing-box"
+          tar -xzf "$tarball" -C "$RUNNER_TEMP/sing-box" --strip-components=1
+          echo "SING_BOX=$RUNNER_TEMP/sing-box/sing-box" >> "$GITHUB_ENV"
+
+      - name: Build srs/ and karing/
+        run: scripts/build.sh
+
       - name: Commit rebuilt outputs
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           set -eu
           git add -A srs karing
@@ -60,6 +85,3 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Rebuild srs and karing zip (Refs ArtemMakaryev/focus-vpn#170)"
           git push
-
-      - name: Test
-        run: scripts/test.sh
