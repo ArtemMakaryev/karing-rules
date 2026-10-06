@@ -36,7 +36,7 @@ karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakar
 - Импорт **заменяет ваши текущие группы маршрутизации** (Diversion Rules). Подписка на сервер при этом сохраняется: в архиве только два файла с правилами.
 - После импорта Karing **включает TUN** (`tun.enable = true`) — это его обычный VPN-режим.
 - Импорт **сбрасывает выбор сервера на «Auto Select»**: выберите сервер сами, правила его не задают.
-- Импорт **выключает Rule Set Direct Download**: если вы её используете, включите снова. Без неё наборы правил скачиваются через выбранный сервер; если он недоступен, скачивание не пройдёт. Тогда включите прямую загрузку для `raw.githubusercontent.com` (Настройки → Diversion → Rule Set); ожидается, что наборы пойдут напрямую, но на живом устройстве это ещё не проверено.
+- Импорт **выключает Rule Set Direct Download**: если вы её используете, включите снова. Без неё наборы правил скачиваются через выбранный сервер; если он недоступен, скачивание не пройдёт. Тогда включите прямую загрузку для `raw.githubusercontent.com` (Diversion → Rule Set); ожидается, что наборы пойдут напрямую, но на живом устройстве это ещё не проверено.
 
 ### Как приходят обновления
 
@@ -106,7 +106,7 @@ The owner sends you a **personal one-tap link** that installs your server and th
 - The restore **replaces your existing routing groups** (Diversion Rules); the subscription is kept.
 - The restore **turns TUN on** (Karing's normal VPN mode).
 - The restore **resets the node selection to "Auto Select"**; the rules do not choose a node, pick it yourself.
-- The restore **turns Rule Set Direct Download off**; turn it on again if you use it. Without it rule sets are downloaded through the selected node, so a dead node stalls the download; enable it for `raw.githubusercontent.com` (Settings → Diversion → Rule Set) if that happens. It is expected to make the sets download directly, but this has not been checked on a live device yet.
+- The restore **turns Rule Set Direct Download off**; turn it on again if you use it. Without it rule sets are downloaded through the selected node, so a dead node stalls the download; enable it for `raw.githubusercontent.com` (Diversion → Rule Set) if that happens. It is expected to make the sets download directly, but this has not been checked on a live device yet.
 
 ### How updates arrive
 
