@@ -6,25 +6,42 @@
 
 ## Быстрая установка
 
-1. **Сначала добавьте подписку на свой сервер** в Karing (импорт правил её не удаляет, но порядок «сначала сервер, потом правила» самый безопасный).
-2. **Откройте страницу установки на устройстве с Karing:** <https://artemmakaryev.github.io/karing-rules/> и нажмите «Установить правила в Karing».
-3. Подтвердите импорт в Karing. Если кнопка не сработала, откройте в браузере эту ссылку (GitHub не делает `karing://`-ссылки кликабельными, поэтому она дана текстом):
+Откройте страницу установки на устройстве с Karing: <https://artemmakaryev.github.io/karing-rules/> и нажмите «Установить правила в Karing». Подтвердите импорт. Если кнопка не сработала, откройте в браузере эту ссылку (GitHub не делает `karing://`-ссылки кликабельными, поэтому она дана текстом):
 
-   ```
-   karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip
-   ```
+```
+karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip
+```
+
+Дальше зависит от того, есть ли в Karing ваш сервер.
+
+### Сервер уже добавлен в Karing
+
+1. Установите правила по ссылке выше и подтвердите импорт.
+2. **Выберите свой сервер заново** (нижняя панель → выбор сервера): импорт сбрасывает выбор на «Auto Select», и пока вы не выберете сервер, трафик идёт через автовыбор.
+3. Если вы пользуетесь прямой загрузкой наборов правил (Rule Set Direct Download), включите её снова: импорт её выключает.
+
+### Новая установка Karing
+
+1. **Сначала добавьте подписку на свой сервер** (см. ниже про личную ссылку). Импорт правил подписку не удаляет, но порядок «сначала сервер, потом правила» самый безопасный.
+2. Установите правила по ссылке выше и подтвердите импорт.
+3. **Выберите свой сервер** (нижняя панель → выбор сервера): после импорта выбран «Auto Select».
+4. Если вы пользуетесь Rule Set Direct Download, включите её (по умолчанию она выключена, а каждый новый импорт выключает её снова).
+
+### Если у вас есть аккаунт у владельца
+
+Владелец присылает **личную ссылку в одно касание**: она ставит сразу ваш сервер и эти правила, ничего добавлять и выбирать отдельно не нужно. Самой ссылки в этом репозитории нет: она персональная.
 
 ### Что нужно знать
 
 - Импорт **заменяет ваши текущие группы маршрутизации** (Diversion Rules). Подписка на сервер при этом сохраняется: в архиве только два файла с правилами.
 - После импорта Karing **включает TUN** (`tun.enable = true`) — это его обычный VPN-режим.
-- Выбранный узел не задаётся правилами: выберите его в Karing сами.
-- Если выбранный узел недоступен, наборы правил не скачиваются: Karing тянет их через выбранный узел. В таком случае включите прямую загрузку наборов (Rule Set Direct Download) для `raw.githubusercontent.com`.
+- Импорт **сбрасывает выбор сервера на «Auto Select»**: выберите сервер сами, правила его не задают.
+- Импорт **выключает Rule Set Direct Download**: если вы её используете, включите снова. Без неё наборы правил скачиваются через выбранный сервер; если он недоступен, скачивание не пройдёт. Тогда включите прямую загрузку для `raw.githubusercontent.com` (Diversion → Rule Set); ожидается, что наборы пойдут напрямую, но на живом устройстве это ещё не проверено.
 
 ### Как приходят обновления
 
-- Наборы правил из `srs/` Karing перекачивает примерно раз в 24 часа (или сразу: Настройки → Очистить кэш / Clear Cache). Ссылки на них не меняются, поэтому повторный импорт не нужен.
-- Новая группа или смена действия у группы (напрямую / через прокси / блок) попадает на устройство **только повторной установкой** `rules.zip` по ссылке выше.
+- Ожидается, что Karing сам перекачивает наборы правил из `srs/` примерно раз в 24 часа (или сразу: Настройки → Очистить кэш / Clear Cache). Ссылки на них не меняются, поэтому повторный импорт не нужен. Обновление после коммита на живом устройстве ещё не проверялось.
+- Новая группа или смена действия у группы (напрямую / через прокси / блок) попадает на устройство **только повторной установкой** `rules.zip` по ссылке выше; после неё снова выберите сервер.
 
 ### Что делают группы
 
@@ -59,25 +76,42 @@ Ready-made routing rules for [Karing](https://karing.app/): Russian sites go dir
 
 ## Quick install
 
-1. **Add your server subscription to Karing first.** The rules zip contains only two files and keeps your subscription, but "server first, rules second" is the safest order.
-2. **Open the install page on the device that runs Karing:** <https://artemmakaryev.github.io/karing-rules/> and press the install button.
-3. Confirm the import in Karing. GitHub does not render `karing://` links, so the raw link is given as text:
+Open the install page on the device that runs Karing: <https://artemmakaryev.github.io/karing-rules/> and press the install button. Confirm the import. GitHub does not render `karing://` links, so the raw link is given as text:
 
-   ```
-   karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip
-   ```
+```
+karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip
+```
+
+What follows depends on whether Karing already has your server.
+
+### Your server is already in Karing
+
+1. Install the rules with the link above and confirm the import.
+2. **Pick your server again** (bottom bar → select server): the import resets the selection to "Auto Select", and until you pick a server traffic goes through auto select.
+3. If you use Rule Set Direct Download, turn it on again: the import turns it off.
+
+### A fresh Karing install
+
+1. **Add your server subscription first** (see the personal link below). The rules zip keeps your subscription, but "server first, rules second" is the safest order.
+2. Install the rules with the link above and confirm the import.
+3. **Pick your server** (bottom bar → select server): after the import "Auto Select" is active.
+4. If you use Rule Set Direct Download, turn it on (it is off by default, and every new import turns it off again).
+
+### If you have an account with the owner
+
+The owner sends you a **personal one-tap link** that installs your server and these rules together; nothing else to add or select. The link itself is not in this repository: it is personal.
 
 ### Warnings
 
 - The restore **replaces your existing routing groups** (Diversion Rules); the subscription is kept.
 - The restore **turns TUN on** (Karing's normal VPN mode).
-- The selected node is not part of the rules; pick it in Karing yourself.
-- Rule sets are downloaded through the selected node, so a dead node stalls refresh; enable Rule Set Direct Download for `raw.githubusercontent.com` if that happens.
+- The restore **resets the node selection to "Auto Select"**; the rules do not choose a node, pick it yourself.
+- The restore **turns Rule Set Direct Download off**; turn it on again if you use it. Without it rule sets are downloaded through the selected node, so a dead node stalls the download; enable it for `raw.githubusercontent.com` (Diversion → Rule Set) if that happens. It is expected to make the sets download directly, but this has not been checked on a live device yet.
 
 ### How updates arrive
 
-- Karing re-downloads the rule sets in `srs/` about every 24 h, or at once via Settings → Clear Cache. The URLs never change, so no re-import is needed.
-- A **new group or a changed action** (direct / proxy / block) reaches a device only by installing `rules.zip` again.
+- Karing is expected to re-download the rule sets in `srs/` about every 24 h, or at once via Settings → Clear Cache. The URLs never change, so no re-import is needed. A refresh after a commit has not been checked on a live device yet.
+- A **new group or a changed action** (direct / proxy / block) reaches a device only by installing `rules.zip` again; pick your server again afterwards.
 
 ### What the groups do
 
