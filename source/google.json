@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "ggpht.com",
+        "google.com",
+        "googleapis.com",
+        "googleusercontent.com",
+        "googlevideo.com",
+        "gstatic.com",
+        "youtu.be",
+        "youtube.com",
+        "ytimg.com"
+      ]
+    }
+  ]
+}

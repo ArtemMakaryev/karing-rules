@@ -1,0 +1,330 @@
+{
+  "items": [
+    {
+      "groupid": "custom",
+      "urlOrPath": "",
+      "remark": "Custom",
+      "editAble": true,
+      "groups": [
+        {
+          "groupid": "custom",
+          "name": "🛑 Adblock",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "acl:BanAD",
+            "geosite:category-ads"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🍃 AdblockPlus",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "acl:BanProgramAD",
+            "acl:BanADCompany"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🛑 malware",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:malware",
+            "geoip:malware",
+            "geoip:phishing",
+            "geosite:phishing",
+            "geosite:cryptominers"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🍏 Apple-Direct",
+          "type": "",
+          "or": true,
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-direct.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🧠 Apple-VPS",
+          "type": "",
+          "or": true,
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-vps.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🌐 Apps-VPS",
+          "type": "",
+          "or": true,
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apps-vps.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🍎 Apple",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:apple",
+            "geosite:apple@ads",
+            "geosite:apple-dev",
+            "geosite:apple-pki",
+            "geosite:apple-update"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "♊️ Google Gemini",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "acl:Gemini"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/google-gemini.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🌏 Google",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:google",
+            "geoip:google"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/google.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🎧 TikTok",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:tiktok"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/tiktok.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "📸 Instagram",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:instagram"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/instagram.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🎥 Netflix",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geoip:netflix",
+            "geosite:netflix"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/netflix.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "📲 Discord",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:discord",
+            "acl:Discord"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/discord.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "📲 WhatsApp",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:whatsapp",
+            "acl:Whatsapp"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/whatsapp.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "📲 Telegram",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geoip:telegram",
+            "geosite:telegram"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/telegram.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "💬 Claude",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "acl:Claude"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/claude.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "💬 OpenAI",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geoip:openai",
+            "geosite:openai"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/openai.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🌏 GFW",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geoip:blocked@ru",
+            "geoip:blocked-community@ru",
+            "geosite:blocked@ru"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/gfw.srs"
+          ]
+        },
+        {
+          "groupid": "custom",
+          "name": "🇷🇺 Russia",
+          "type": "",
+          "or": true,
+          "rule_set_build_in": [
+            "geosite:ru",
+            "geoip:ru"
+          ],
+          "rule_set": [
+            "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/russia.srs"
+          ]
+        }
+      ]
+    }
+  ],
+  "rule_set_items": [
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-direct.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-direct.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-vps.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apple-vps.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apps-vps.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/apps-vps.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/google-gemini.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/google-gemini.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/google.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/google.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/tiktok.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/tiktok.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/instagram.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/instagram.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/netflix.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/netflix.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/discord.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/discord.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/whatsapp.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/whatsapp.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/telegram.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/telegram.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/claude.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/claude.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/openai.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/openai.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/gfw.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/gfw.srs"
+    },
+    {
+      "type": "remote",
+      "tag": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/russia.srs",
+      "format": "binary",
+      "url": "https://raw.githubusercontent.com/ArtemMakaryev/karing-rules/main/srs/russia.srs"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# AGENTS.md
+
+Public repository: Karing routing rules shared with every user. `groups.json` is the one source of truth for the shared groups, in match order; `source/<slug>.json` are sing-box rule-set sources (`"version": 2`); CI and `scripts/build.sh` compile them to `srs/*.srs` and generate `karing/rules.zip` (two files only), `karing/preset.json` and the install page in `docs/`.
+
+- Build: `scripts/build.sh` (outputs into the repo; `scripts/build.sh <dir>` into another directory). Test: `scripts/test.sh` (offline; compares a fresh build with the committed outputs).
+- sing-box is pinned to **1.13.0** (the CI tarball is checked by sha256). Do not use `sing-box run`.
+- Never add personal matchers: the forbidden list lives in `scripts/test.sh`, and the test fails when one appears anywhere in the repo.
+- No secrets: this repository is public. No UUID, key, short id, token, subscription URL, personal IP or personal domain.
+- Group actions are only `block`, `direct`, `currentSelected`. A group with `"srs": true` needs `source/<slug>.json`.
+- Commit format: `<subject> (Refs ArtemMakaryev/focus-vpn#170)`.

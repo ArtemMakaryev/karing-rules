@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "aistudio.google.com",
+        "gemini.google.com",
+        "generativelanguage.googleapis.com",
+        "makersuite.google.com"
+      ]
+    }
+  ]
+}

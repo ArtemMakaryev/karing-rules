@@ -1,0 +1,154 @@
+{
+  "disable": [],
+  "select_default": "",
+  "recent": [],
+  "fav": [],
+  "geosite": [],
+  "geoip": [],
+  "acl": [],
+  "ruleset_direct_download": [],
+  "server_select_search_select": [],
+  "add_profile_select": [],
+  "diversion_group": [
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🛑 Adblock",
+      "server_groupid": "block",
+      "server_name": "block_out",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🍃 AdblockPlus",
+      "server_groupid": "block",
+      "server_name": "block_out",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🛑 malware",
+      "server_groupid": "block",
+      "server_name": "block_out",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🍏 Apple-Direct",
+      "server_groupid": "direct",
+      "server_name": "direct_out",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🧠 Apple-VPS",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🌐 Apps-VPS",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🍎 Apple",
+      "server_groupid": "direct",
+      "server_name": "direct_out",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "♊️ Google Gemini",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🌏 Google",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🎧 TikTok",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "📸 Instagram",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🎥 Netflix",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "📲 Discord",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "📲 WhatsApp",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "📲 Telegram",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "💬 Claude",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "💬 OpenAI",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🌏 GFW",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "custom",
+      "diversion_name": "🇷🇺 Russia",
+      "server_groupid": "direct",
+      "server_name": "direct_out",
+      "dns_servers": []
+    },
+    {
+      "diversion_groupid": "final",
+      "diversion_name": "",
+      "server_groupid": "currentSelected",
+      "server_name": "",
+      "dns_servers": []
+    }
+  ]
+}

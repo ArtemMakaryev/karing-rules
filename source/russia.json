@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "ru",
+        "su",
+        "xn--p1ai",
+        "2gis.com",
+        "avito.st",
+        "comss.one",
+        "habr.com",
+        "habrastorage.org",
+        "imgsmail.ru",
+        "ivi.tv",
+        "kaspersky.com",
+        "kinopoisk.com",
+        "livejournal.com",
+        "mail.ru",
+        "mindbox.cloud",
+        "mradx.net",
+        "mycdn.me",
+        "ok.me",
+        "okcdn.ru",
+        "okko.tv",
+        "ozon.io",
+        "premier.one",
+        "sberbank.com",
+        "userapi.com",
+        "vk-portal.net",
+        "vk.com",
+        "vkplay.live",
+        "vkusercontent.com",
+        "vkuserid.com",
+        "wbstatic.net",
+        "yandex.com",
+        "yandex.net",
+        "yastatic.net"
+      ],
+      "domain_keyword": [
+        "ozon",
+        "sberbank",
+        "tbank",
+        "tinkoff",
+        "wildberries",
+        "yandex"
+      ]
+    }
+  ]
+}

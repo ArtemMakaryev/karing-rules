@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "icloud-content.com",
+        "icloud.com",
+        "push.apple.com"
+      ]
+    }
+  ]
+}

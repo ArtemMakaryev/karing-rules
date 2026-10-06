@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "amp-api.media.apple.com",
+        "amp-api.music.apple.com",
+        "apple-relay.apple.com",
+        "apple-relay.cloudflare.com",
+        "apple-relay.fastly-edge.com",
+        "apple.news",
+        "auth.music.apple.com",
+        "cp4.cloudflare.com",
+        "gs-loc.apple.com",
+        "guzzoni.apple.com",
+        "js-cdn.music.apple.com",
+        "ls.apple.com",
+        "music.apple.com",
+        "news-edge.apple.com",
+        "play.music.apple.com",
+        "play.tv.apple.com",
+        "smoot.apple.com",
+        "tv.apple.com",
+        "uts-api.itunes.apple.com"
+      ]
+    }
+  ]
+}
