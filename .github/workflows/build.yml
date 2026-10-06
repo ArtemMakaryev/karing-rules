@@ -35,6 +35,15 @@ jobs:
       - name: Build srs/ and karing/
         run: scripts/build.sh
 
+      # Outside main the committed outputs must already be current (the test below
+      # rebuilds in place here, so this is where a stale commit is caught).
+      - name: Committed outputs are current
+        if: github.ref != 'refs/heads/main'
+        run: |
+          set -eu
+          git add -N srs karing
+          git diff --exit-code -- srs karing
+
       # An owner edit of source/ or groups.json in the web UI lands without outputs:
       # commit them back. The push of GITHUB_TOKEN starts no new run, so no loop;
       # nothing changed means nothing is committed.
