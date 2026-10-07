@@ -1,82 +1,10 @@
 # karing-rules
 
-Готовые правила маршрутизации для [Karing](https://karing.app/): российские сайты идут напрямую, заблокированные и зарубежные сервисы — через ваш сервер, реклама и вредоносные адреса блокируются. Наборы правил обновляются с GitHub сами.
-
-*English version below.*
-
-## Быстрая установка
-
-Откройте страницу установки на устройстве с Karing: <https://artemmakaryev.github.io/karing-rules/> и нажмите «Установить правила в Karing». Подтвердите импорт. Если кнопка не сработала, откройте в браузере эту ссылку (GitHub не делает `karing://`-ссылки кликабельными, поэтому она дана текстом):
-
-```
-karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip
-```
-
-Дальше зависит от того, есть ли в Karing ваш сервер.
-
-### Сервер уже добавлен в Karing
-
-1. Установите правила по ссылке выше и подтвердите импорт.
-2. **Выберите свой сервер заново** (нижняя панель → выбор сервера): импорт сбрасывает выбор на «Auto Select», и пока вы не выберете сервер, трафик идёт через автовыбор.
-3. Если вы пользуетесь прямой загрузкой наборов правил (Rule Set Direct Download), включите её снова: импорт её выключает.
-
-### Новая установка Karing
-
-1. **Сначала добавьте подписку на свой сервер** (см. ниже про личную ссылку). Импорт правил подписку не удаляет, но порядок «сначала сервер, потом правила» самый безопасный.
-2. Установите правила по ссылке выше и подтвердите импорт.
-3. **Выберите свой сервер** (нижняя панель → выбор сервера): после импорта выбран «Auto Select».
-4. Если вы пользуетесь Rule Set Direct Download, включите её (по умолчанию она выключена, а каждый новый импорт выключает её снова).
-
-### Если у вас есть аккаунт у владельца
-
-Владелец присылает **личную ссылку в одно касание**: она ставит сразу ваш сервер и эти правила, ничего добавлять и выбирать отдельно не нужно. Самой ссылки в этом репозитории нет: она персональная.
-
-### Что нужно знать
-
-- Импорт **заменяет ваши текущие группы маршрутизации** (Diversion Rules). Подписка на сервер при этом сохраняется: в архиве только два файла с правилами.
-- После импорта Karing **включает TUN** (`tun.enable = true`) — это его обычный VPN-режим.
-- Импорт **сбрасывает выбор сервера на «Auto Select»**: выберите сервер сами, правила его не задают.
-- Импорт **выключает Rule Set Direct Download**: если вы её используете, включите снова. Без неё наборы правил скачиваются через выбранный сервер; если он недоступен, скачивание не пройдёт. Тогда включите прямую загрузку для `raw.githubusercontent.com` (Diversion → Rule Set); ожидается, что наборы пойдут напрямую, но на живом устройстве это ещё не проверено.
-
-### Как приходят обновления
-
-- Ожидается, что Karing сам перекачивает наборы правил из `srs/` примерно раз в 24 часа (или сразу: Настройки → Очистить кэш / Clear Cache). Ссылки на них не меняются, поэтому повторный импорт не нужен. Обновление после коммита на живом устройстве ещё не проверялось.
-- Новая группа или смена действия у группы (напрямую / через прокси / блок) попадает на устройство **только повторной установкой** `rules.zip` по ссылке выше; после неё снова выберите сервер.
-
-### Что делают группы
-
-Группы проверяются сверху вниз, срабатывает первая подходящая (список — в [`groups.json`](groups.json)).
-
-| Порядок | Группы | Действие |
-|---|---|---|
-| 1–3 | 🛑 Adblock, 🍃 AdblockPlus, 🛑 malware | блокируются реклама, трекеры, вредоносные и фишинговые адреса |
-| 4–7 | 🍏 Apple-Direct, 🧠 Apple-VPS, 🌐 Apps-VPS, 🍎 Apple | сервисы Apple напрямую; часть (музыка, ТВ, геолокация, новости) и некоторые приложения — через сервер |
-| 8–17 | Google Gemini, Google, TikTok, Instagram, Netflix, Discord, WhatsApp, Telegram, Claude, OpenAI | через выбранный узел |
-| 18 | 🌏 GFW | заблокированное в РФ — через выбранный узел |
-| 19 | 🇷🇺 Russia | **напрямую**: `geosite:ru`, `geoip:ru` и `srs/russia.srs` (домены `.ru`, `.рф`, `.su` и российские сервисы вне этих зон) |
-| — | всё остальное | через выбранный узел |
-
-🇷🇺 Russia стоит **после** 🌏 GFW: заблокированное в РФ российское имя должно идти через прокси, а не напрямую.
-
-Список российских сервисов вне зон `.ru`/`.рф`/`.su` в `source/russia.json` взят из клиентского шаблона автора (`templates/client/base.json`, правила `local-dns`: `domain_suffix` строки 51–56 и 78–161, `domain_keyword` строки 60–73; личные и корпоративные записи не переносились).
-
-## Как править правила (для владельца)
-
-1. Измените `source/<slug>.json` (формат sing-box rule-set, `"version": 2`) или `groups.json`, сделайте commit и push (подойдёт и веб-редактор GitHub).
-2. GitHub Actions пересоберёт `srs/` и `karing/` и закоммитит результат от имени бота.
-3. Содержимое групп с файлом в `source/` меняется без повторной установки; новая группа или смена действия требует новой установки `rules.zip`.
-
-Локально: `scripts/build.sh` собирает, `scripts/test.sh` проверяет (нужен sing-box 1.13.0, `jq`, `python3`).
-
----
-
-# English
-
-Ready-made routing rules for [Karing](https://karing.app/): Russian sites go direct, blocked and foreign services go through your own server, ads and malware are blocked. The rule sets update from GitHub on their own.
+Ready-made routing rules for [Karing](https://karing.app/): Russian sites go direct, blocked and foreign services go through your server, and ads and malicious addresses are blocked. The rule sets update from GitHub on their own.
 
 ## Quick install
 
-Open the install page on the device that runs Karing: <https://artemmakaryev.github.io/karing-rules/> and press the install button. Confirm the import. GitHub does not render `karing://` links, so the raw link is given as text:
+Open the install page on the device that runs Karing: <https://artemmakaryev.github.io/karing-rules/> (the page is in Russian) and press «Установить правила в Karing» ("Install the rules in Karing"). Confirm the import. If the button did not work, open this link in the browser (GitHub does not make `karing://` links clickable, so it is given as text):
 
 ```
 karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakaryev%2Fkaring-rules%2Fmain%2Fkaring%2Frules.zip
@@ -84,39 +12,56 @@ karing://restore-backup?url=https%3A%2F%2Fraw.githubusercontent.com%2FArtemMakar
 
 What follows depends on whether Karing already has your server.
 
-### Your server is already in Karing
+### The server is already added in Karing
 
 1. Install the rules with the link above and confirm the import.
-2. **Pick your server again** (bottom bar → select server): the import resets the selection to "Auto Select", and until you pick a server traffic goes through auto select.
-3. If you use Rule Set Direct Download, turn it on again: the import turns it off.
+2. **Select your server again** (bottom bar → server selection): the import resets the selection to "Auto Select", and until you select a server, traffic goes through auto select.
+3. If you use direct download of rule sets (Rule Set Direct Download), turn it on again: the import turns it off.
 
-### A fresh Karing install
+### A new Karing install
 
-1. **Add your server subscription first** (see the personal link below). The rules zip keeps your subscription, but "server first, rules second" is the safest order.
+1. **First add the subscription to your server** (see the personal link below). Importing the rules does not delete the subscription, but the order "server first, then rules" is the safest.
 2. Install the rules with the link above and confirm the import.
-3. **Pick your server** (bottom bar → select server): after the import "Auto Select" is active.
+3. **Select your server** (bottom bar → server selection): after the import "Auto Select" is selected.
 4. If you use Rule Set Direct Download, turn it on (it is off by default, and every new import turns it off again).
 
 ### If you have an account with the owner
 
-The owner sends you a **personal one-tap link** that installs your server and these rules together; nothing else to add or select. The link itself is not in this repository: it is personal.
+The owner sends you a **personal one-tap link**: it installs your server and these rules together, and there is nothing to add or select separately. The link itself is not in this repository: it is personal.
 
-### Warnings
+### What you need to know
 
-- The restore **replaces your existing routing groups** (Diversion Rules); the subscription is kept.
-- The restore **turns TUN on** (Karing's normal VPN mode).
-- The restore **resets the node selection to "Auto Select"**; the rules do not choose a node, pick it yourself.
-- The restore **turns Rule Set Direct Download off**; turn it on again if you use it. Without it rule sets are downloaded through the selected node, so a dead node stalls the download; enable it for `raw.githubusercontent.com` (Diversion → Rule Set) if that happens. It is expected to make the sets download directly, but this has not been checked on a live device yet.
+- The import **replaces your current routing groups** (Diversion Rules). The subscription to the server is kept: the archive has only two rule files.
+- After the import Karing **turns TUN on** (`tun.enable = true`); this is its usual VPN mode.
+- The import **resets the server selection to "Auto Select"**: select the server yourself, the rules do not set it.
+- The import **turns off Rule Set Direct Download**: if you use it, turn it on again. Without it, rule sets are downloaded through the selected server; if it is unavailable, the download fails. In that case turn on direct download for `raw.githubusercontent.com` (Diversion → Rule Set); the rule sets are expected to go direct, but this has not been checked on a live device yet.
 
 ### How updates arrive
 
-- Karing is expected to re-download the rule sets in `srs/` about every 24 h, or at once via Settings → Clear Cache. The URLs never change, so no re-import is needed. A refresh after a commit has not been checked on a live device yet.
-- A **new group or a changed action** (direct / proxy / block) reaches a device only by installing `rules.zip` again; pick your server again afterwards.
+- Karing is expected to re-download the rule sets from `srs/` by itself about once every 24 hours (or at once: Settings → Clear Cache). Their links do not change, so a repeated import is not needed. An update after a commit has not been checked on a live device yet.
+- A new group, or a change of a group's action (direct / through the proxy / block), reaches the device **only by installing** `rules.zip` again with the link above; after that, select the server again.
 
 ### What the groups do
 
-First match wins, top to bottom (see [`groups.json`](groups.json)): ads and malware blocked; Apple direct (a few Apple services via the server); Google, TikTok, Instagram, Netflix, Discord, WhatsApp, Telegram, Claude, OpenAI and everything blocked in Russia via the selected node; then **Russia direct** (`geosite:ru`, `geoip:ru` and `srs/russia.srs`); everything else via the selected node. Russia sits after GFW so that a name blocked in Russia still goes through the proxy.
+Groups are checked from top to bottom, and the first match applies (the list is in [`groups.json`](groups.json)).
 
-### Editing the rules (owner)
+| Order | Groups | Action |
+|---|---|---|
+| 1–3 | 🛑 Adblock, 🍃 AdblockPlus, 🛑 malware | ads, trackers, and malicious and phishing addresses are blocked |
+| 4–7 | 🍏 Apple-Direct, 🧠 Apple-VPS, 🌐 Apps-VPS, 🍎 Apple | Apple services go direct; some (music, TV, geolocation, news) and some apps go through the server |
+| 8–17 | Google Gemini, Google, TikTok, Instagram, Netflix, Discord, WhatsApp, Telegram, Claude, OpenAI | through the selected node |
+| 18 | 🌏 GFW | what is blocked in Russia: through the selected node |
+| 19 | 🇷🇺 Russia | **direct**: `geosite:ru`, `geoip:ru` and `srs/russia.srs` (domains in `.ru`, `.рф`, `.su` and Russian services outside these zones) |
+| — | everything else | through the selected node |
 
-Edit `source/<slug>.json` (sing-box rule-set source, `"version": 2`) or `groups.json`, push, and CI rebuilds `srs/` and `karing/` and commits them back. Locally: `scripts/build.sh` builds and `scripts/test.sh` checks (sing-box 1.13.0, `jq`, `python3`).
+🇷🇺 Russia comes **after** 🌏 GFW: a Russian name that is blocked in Russia must go through the proxy, not direct.
+
+The list of Russian services outside the `.ru`/`.рф`/`.su` zones in `source/russia.json` is taken from the author's client template (`templates/client/base.json`, the `local-dns` rules: `domain_suffix` lines 51–56 and 78–161, `domain_keyword` lines 60–73; personal and corporate entries were not carried over).
+
+## How to edit the rules (for the owner)
+
+1. Change `source/<slug>.json` (sing-box rule-set format, `"version": 2`) or `groups.json`, then commit and push (the GitHub web editor works too).
+2. GitHub Actions rebuilds `srs/` and `karing/` and commits the result as the bot.
+3. The contents of groups that have a file in `source/` change without a new install; a new group or a change of action requires a new install of `rules.zip`.
+
+Locally: `scripts/build.sh` builds, `scripts/test.sh` checks (needs sing-box 1.13.0, `jq`, `python3`).
