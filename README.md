@@ -16,7 +16,6 @@ What follows depends on whether Karing already has your server.
 
 1. Install the rules with the link above and confirm the import.
 2. **Select your server again** (bottom bar → server selection): the import resets the selection to "Auto Select", and until you select a server, traffic goes through auto select.
-3. If you use direct download of rule sets (Rule Set Direct Download), turn it on again: the import turns it off.
 
 ### A new Karing install
 
@@ -33,7 +32,7 @@ The owner sends you a **personal one-tap link**: it installs your server and the
 - The import **replaces your current routing groups** (Diversion Rules). The subscription to the server is kept: the archive has only two rule files.
 - After the import Karing **turns TUN on** (`tun.enable = true`); this is its usual VPN mode.
 - The import **resets the server selection to "Auto Select"**: select the server yourself, the rules do not set it.
-- The import **turns off Rule Set Direct Download**: if you use it, turn it on again. Measured on Karing 1.2.23 (2026-10-07): rule sets are downloaded through the selected server, and turning on direct download for `raw.githubusercontent.com` (Diversion → Rule Set) did not change that: a refresh with the toggle on still went through the server. So do not count on this toggle to download the rule sets directly.
+- The import **turns off Rule Set Direct Download**; there is no need to turn it on again. Measured on Karing 1.2.23 (2026-10-07): rule sets are downloaded through the selected server, and turning on direct download for `raw.githubusercontent.com` (Diversion → Rule Set) did not change that: a refresh with the toggle on still went through the server. So do not count on this toggle to download the rule sets directly.
 
 ### How updates arrive
 
