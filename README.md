@@ -1,6 +1,6 @@
 # karing-rules
 
-Ready-made routing rules for [Karing](https://karing.app/): Russian sites go direct, blocked and foreign services go through your server, and ads and malicious addresses are blocked. The rule sets update from GitHub on their own.
+Ready-made routing rules for [Karing](https://karing.app/): Russian sites go direct, blocked and foreign services go through your server, and ads and malicious addresses are blocked. The rules update by themselves, with no re-import: Karing re-downloads the rule sets from GitHub once per Update interval (1 day by default) while it is connected.
 
 ## Quick install
 
@@ -34,11 +34,13 @@ The owner sends you a **personal one-tap link**: it installs your server and the
 - The import **replaces your current routing groups** (Diversion Rules). The subscription to the server is kept: the archive has only two rule files.
 - After the import Karing **turns TUN on** (`tun.enable = true`); this is its usual VPN mode.
 - The import **resets the server selection to "Auto Select"**: select the server yourself, the rules do not set it.
-- The import **turns off Rule Set Direct Download**: if you use it, turn it on again. Without it, rule sets are downloaded through the selected server; if it is unavailable, the download fails. In that case turn on direct download for `raw.githubusercontent.com` (Diversion → Rule Set); the rule sets are expected to go direct, but this has not been checked on a live device yet.
+- The import **turns off Rule Set Direct Download**: if you use it, turn it on again. Measured on Karing 1.2.23 (2026-10-07): rule sets are downloaded through the selected server, and turning on direct download for `raw.githubusercontent.com` (Diversion → Rule Set) did not change that: a refresh with the toggle on still went through the server. So do not count on this toggle to download the rule sets directly.
 
 ### How updates arrive
 
-- Karing is expected to re-download the rule sets from `srs/` by itself about once every 24 hours (or at once: Settings → Clear Cache). Their links do not change, so a repeated import is not needed. An update after a commit has not been checked on a live device yet.
+- The rules update by themselves, with no re-import: the rule-set links in `srs/` do not change, and Karing re-downloads them once per **Update interval** (1 day by default) while it is connected. Measured on Karing 1.2.23 (2026-10-07): a commit reached a connected Karing with no re-import, at the next update-interval tick (68.5 minutes after the commit with the interval set to 1 h).
+- For faster updates set **Diversion → Rule Set → Update interval** to 1 h (the minimum).
+- Nothing in the app forces an update earlier: reconnecting and Settings → Cleanup Cache do not (Karing keeps using the cached rule sets until the interval comes round).
 - A new group, or a change of a group's action (direct / through the proxy / block), reaches the device **only by installing** `rules.zip` again with the link above; after that, select the server again.
 
 ### What the groups do
