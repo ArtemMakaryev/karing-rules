@@ -23,7 +23,6 @@ What follows depends on whether Karing already has your server.
 1. **First add the subscription to your server** (see the personal link below). Importing the rules does not delete the subscription, but the order "server first, then rules" is the safest.
 2. Install the rules with the link above and confirm the import.
 3. **Select your server** (bottom bar → server selection): after the import "Auto Select" is selected.
-4. If you use Rule Set Direct Download, turn it on (it is off by default, and every new import turns it off again).
 
 ### If you have an account with the owner
 
@@ -40,7 +39,7 @@ The owner sends you a **personal one-tap link**: it installs your server and the
 
 - The rules update by themselves, with no re-import: the rule-set links in `srs/` do not change, and Karing re-downloads them once per **Update interval** (1 day by default) while it is connected. Measured on Karing 1.2.23 (2026-10-07): a commit reached a connected Karing with no re-import, at the next update-interval tick (68.5 minutes after the commit with the interval set to 1 h).
 - For faster updates set **Diversion → Rule Set → Update interval** to 1 h (the minimum).
-- Nothing in the app forces an update earlier: reconnecting and Settings → Cleanup Cache do not (Karing keeps using the cached rule sets until the interval comes round).
+- Nothing in the app forces an update earlier: reconnecting and Settings → Cleanup Cache did not pick up a changed rule set on the live test.
 - A new group, or a change of a group's action (direct / through the proxy / block), reaches the device **only by installing** `rules.zip` again with the link above; after that, select the server again.
 
 ### What the groups do
